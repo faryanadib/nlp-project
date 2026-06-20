@@ -1,0 +1,35 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Device: mps
+Model:  helinivan/english-sarcasm-detector  (pre-trained on the News Headlines Sarcasm dataset)
+
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 51315.06it/s]
+Loaded 28,619 headlines | sarcastic share 47.6%
+
+============================================================
+FULL sarcasm dataset  (28,619 headlines)
+============================================================
+Accuracy : 0.9455
+Precision: 0.9715
+Recall   : 0.9124
+F1       : 0.9410
+Confusion matrix (rows=true, cols=pred; 0=not,1=sarcastic):
+          pred 0   pred 1
+  true 0   14620      365
+  true 1    1194    12440
+Baselines (acc/F1): random 0.4983/0.4861 | majority 0.5236/0.0000 | model 0.9455/0.9410
+
+============================================================
+RANDOM sample (1066, seed=42)  (1,066 headlines)
+============================================================
+Accuracy : 0.9409
+Precision: 0.9505
+Recall   : 0.9170
+F1       : 0.9335
+Confusion matrix (rows=true, cols=pred; 0=not,1=sarcastic):
+          pred 0   pred 1
+  true 0     561       23
+  true 1      40      442
+Baselines (acc/F1): random 0.5131/0.4956 | majority 0.5478/0.0000 | model 0.9409/0.9335
+
+✅ DONE — pre-trained sarcasm model evaluated on our data
+⚠️  NOTE: this model was trained on this same dataset → numbers are in-domain (likely optimistic).

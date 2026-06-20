@@ -1,0 +1,48 @@
+
+════════════════════════════════════════════════════════════
+TESTING: Inception
+════════════════════════════════════════════════════════════
+
+→ Letterboxd …
+    ! request failed: https://letterboxd.com/search/films/Inception/ (HTTPError)
+    FAILED (0 reviews)
+
+→ IMDb (users) …
+    FAILED (0 reviews)
+
+→ Metacritic …
+    FAILED (0 reviews)
+
+→ Rotten Tomatoes …
+    ! request failed: https://www.rottentomatoes.com/napi/search/all?searchQuery=Inception (HTTPError)
+    FAILED (0 reviews)
+
+→ RogerEbert.com …
+    ! request failed: https://www.rogerebert.com/search?q=Inception (HTTPError)
+    FAILED (0 reviews)
+[FAIL] Inception: Excel file contains no review rows
+
+════════════════════════════════════════════════════════════
+TESTING: The Godfather
+════════════════════════════════════════════════════════════
+
+→ Letterboxd …
+    FAILED (0 reviews)
+
+→ IMDb (users) …
+    FAILED (0 reviews)
+
+→ Metacritic …
+    FAILED (0 reviews)
+
+→ Rotten Tomatoes …
+    ! request failed: https://www.rottentomatoes.com/napi/search/all?searchQuery=The%20Godfather (HTTPError)
+    FAILED (0 reviews)
+
+→ RogerEbert.com …
+    ! request failed: https://www.rogerebert.com/search?q=The%20Godfather (HTTPError)
+    FAILED (0 reviews)
+[FAIL] The Godfather: Excel file contains no review rows
+
+────────────────────────────────────────────────────────────
+❌ FAILED — see failures above

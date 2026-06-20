@@ -1,0 +1,26 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Reddit general: 2000 items | sarc 1000/1000
+Reddit MOVIE subs: 815 items | sarc 404/411
+MUStARD film/TV: 200 items | sarc 92/108
+
+Loading weights:   0%|          | 0/210 [00:00<?, ?it/s]Loading weights: 100%|██████████| 210/210 [00:00<00:00, 57852.47it/s]
+minh21 XLNet (Reddit)    | Reddit general     acc 0.5000  F1 0.0000  sarc-share 0%
+minh21 XLNet (Reddit)    | Reddit MOVIE subs  acc 0.5043  F1 0.0000  sarc-share 0%
+minh21 XLNet (Reddit)    | MUStARD film/TV    acc 0.5400  F1 0.0000  sarc-share 0%
+
+Loading weights:   0%|          | 0/202 [00:00<?, ?it/s]Loading weights: 100%|██████████| 202/202 [00:00<00:00, 8068.04it/s]
+dnzblgn (cust.reviews)   | Reddit general     acc 0.5445  F1 0.4134  sarc-share 28%
+dnzblgn (cust.reviews)   | Reddit MOVIE subs  acc 0.5276  F1 0.3800  sarc-share 27%
+dnzblgn (cust.reviews)   | MUStARD film/TV    acc 0.5800  F1 0.4615  sarc-share 32%
+
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 62657.38it/s]
+helinivan (headlines)    | Reddit general     acc 0.4970  F1 0.1160  sarc-share 7%
+helinivan (headlines)    | Reddit MOVIE subs  acc 0.5117  F1 0.1116  sarc-share 5%
+helinivan (headlines)    | MUStARD film/TV    acc 0.5350  F1 0.0211  sarc-share 2%
+
+======================================================================
+SUMMARY — F1 by model x test set
+model                   Reddit general      Reddit MOVIE subs   MUStARD film/TV     
+minh21 XLNet (Reddit)   F1 0.000 acc 0.50   F1 0.000 acc 0.50   F1 0.000 acc 0.54   
+dnzblgn (cust.reviews)  F1 0.413 acc 0.54   F1 0.380 acc 0.53   F1 0.462 acc 0.58   
+helinivan (headlines)   F1 0.116 acc 0.50   F1 0.112 acc 0.51   F1 0.021 acc 0.54   

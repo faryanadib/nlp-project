@@ -1,0 +1,22 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[PASS] App imports without errors
+Sentiment model: fabriceyhc/bert-base-uncased-imdb
+Sarcasm model:   /Users/faryan/Faryan/UNI/5th semester/NLP-Project/Project/Tokenizers/phase3_sarcasm/checkpoints/movie_reddit_model
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 51695.80it/s]
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 6826.58it/s]
+
+→ TMDB …
+    8 reviews in 0.1s
+
+→ Letterboxd …
+    66 reviews in 11.5s
+
+→ Trakt …
+    80 reviews in 6.3s
+[PASS] Pipeline returns reviews — 146 reviews for 'Inception'
+[PASS] Verdict is GOOD/BAD/MIXED — verdict=GOOD, confidence=66%
+[PASS] Sarcasm stats present — 20 sarcastic reviews
+
+────────────────────────────────────────────────────────────
+SUMMARY: 4/4 checks passed
+✅ PASSED — end-to-end pipeline works

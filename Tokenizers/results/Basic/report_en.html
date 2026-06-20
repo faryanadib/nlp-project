@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NLP Session 1 — Results Report</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f6fa; color: #2d3436; }
+  .container { max-width: 960px; margin: 0 auto; padding: 40px 24px; }
+
+  header { background: #2d3436; color: white; padding: 36px 40px; border-radius: 12px; margin-bottom: 32px; }
+  header h1 { font-size: 1.7rem; font-weight: 700; margin-bottom: 8px; }
+  header p  { font-size: 0.95rem; color: #b2bec3; }
+
+  .section { background: white; border-radius: 12px; padding: 28px 32px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .section h2 { font-size: 1.1rem; font-weight: 700; color: #2d3436; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid #f0f0f0; }
+  .section p  { font-size: 0.92rem; line-height: 1.7; color: #636e72; margin-bottom: 10px; }
+
+  .chart-wrap { position: relative; height: 320px; margin-top: 8px; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin-top: 8px; }
+  th { background: #2d3436; color: white; padding: 11px 14px; text-align: left; font-weight: 600; }
+  td { padding: 10px 14px; border-bottom: 1px solid #f0f0f0; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f8f9fa; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.78rem; font-weight: 600; }
+  .tag-scratch { background: #dfe6e9; color: #636e72; }
+  .tag-tfidf   { background: #d5f5e3; color: #1e8449; }
+  .tag-bert    { background: #d6eaf8; color: #1a5276; }
+  .tag-best    { background: #fdebd0; color: #935116; }
+  .best-row td { font-weight: 700; }
+
+  .finding { display: flex; gap: 16px; margin-bottom: 12px; }
+  .finding-num { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: #2d3436; color: white; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; margin-top: 2px; }
+  .finding p { font-size: 0.91rem; line-height: 1.65; color: #636e72; margin: 0; }
+
+  .next-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; }
+  .next-item:last-child { border-bottom: none; }
+  .next-badge { flex-shrink: 0; background: #2d3436; color: white; border-radius: 6px; padding: 2px 10px; font-size: 0.78rem; font-weight: 700; height: fit-content; margin-top: 2px; }
+  .next-text { color: #636e72; line-height: 1.6; }
+
+  footer { text-align: center; font-size: 0.82rem; color: #b2bec3; margin-top: 32px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>NLP Group Project Tokenizers — BERT Results</h1>
+    <p>Feature Engineering &amp; Pre-trained BERT Embeddings &nbsp;·&nbsp; IMDB Sentiment Classification &nbsp;·&nbsp; 50,000 reviews</p>
+  </header>
+
+  <!-- Overview -->
+  <div class="section">
+    <h2>Overview</h2>
+    <p>This session built on the from-scratch classifiers (Naive Bayes, Perceptron, Logistic Regression) developed in Weeks 1–5. We explored two directions promised in the midway presentation: <strong>better feature representations</strong> using TF-IDF and bigrams, and <strong>pre-trained language model embeddings</strong> using BERT variants.</p>
+    <p>All models are evaluated on the same 80/20 train-test split (seed=42) of the IMDB dataset using Accuracy, Precision, Recall, and F1.</p>
+  </div>
+
+  <!-- Chart -->
+  <div class="section">
+    <h2>F1 Score Progression Across All Setups</h2>
+    <div class="chart-wrap">
+      <canvas id="f1Chart"></canvas>
+    </div>
+  </div>
+
+  <!-- Results Table -->
+  <div class="section">
+    <h2>Full Results Table</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th><th>Setup</th><th>Type</th><th>Accuracy</th><th>Precision</th><th>Recall</th><th>F1</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>LR from-scratch + BoW binary</td>
+          <td><span class="tag tag-scratch">From Scratch</span></td>
+          <td>—</td><td>—</td><td>—</td><td>0.8856</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>TF-IDF unigrams + LR</td>
+          <td><span class="tag tag-tfidf">TF-IDF</span></td>
+          <td>0.8981</td><td>0.8932</td><td>0.9051</td><td>0.8991</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>TF-IDF unigrams + SVM</td>
+          <td><span class="tag tag-tfidf">TF-IDF</span></td>
+          <td>0.8959</td><td>0.8921</td><td>0.9016</td><td>0.8968</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>TF-IDF bigrams + LR</td>
+          <td><span class="tag tag-tfidf">TF-IDF</span></td>
+          <td>0.9065</td><td>0.9018</td><td>0.9131</td><td>0.9074</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>TF-IDF bigrams + SVM</td>
+          <td><span class="tag tag-tfidf">TF-IDF</span></td>
+          <td>0.9225</td><td>0.9198</td><td>0.9263</td><td>0.9230</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>BERT (distilbert-base-uncased) + LR</td>
+          <td><span class="tag tag-bert">BERT Embed</span></td>
+          <td>0.8590</td><td>0.8563</td><td>0.8665</td><td>0.8614</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>BERT (SST-2 fine-tuned) + LR</td>
+          <td><span class="tag tag-bert">BERT Embed</span></td>
+          <td>0.8895</td><td>0.8835</td><td>0.9001</td><td>0.8917</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>BERT (distilbert-imdb) + LR</td>
+          <td><span class="tag tag-bert">BERT Embed</span></td>
+          <td>0.9270</td><td>0.9163</td><td>0.9416</td><td>0.9288</td>
+        </tr>
+        <tr class="best-row">
+          <td>9</td>
+          <td>BERT (bert-base-uncased-imdb) + LR</td>
+          <td><span class="tag tag-best">Best</span></td>
+          <td>0.9540</td><td>0.9545</td><td>0.9545</td><td>0.9545</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Key Findings -->
+  <div class="section">
+    <h2>Key Findings</h2>
+
+    <div class="finding">
+      <div class="finding-num">1</div>
+      <p><strong>Generic BERT embeddings underperform TF-IDF:</strong> Without any sentiment adaptation, the [CLS] token from distilbert-base-uncased encodes general language structure rather than sentiment signals, resulting in F1=0.8614 — below even the from-scratch LR baseline.</p>
+    </div>
+
+    <div class="finding">
+      <div class="finding-num">2</div>
+      <p><strong>Domain adaptation matters:</strong> Moving from a generic model → SST-2 fine-tuned → IMDB fine-tuned produced clear stepwise improvements (0.8614 → 0.8917 → 0.9288 → 0.9545). Each step brought the embedding space closer to the task at hand.</p>
+    </div>
+
+    <div class="finding">
+      <div class="finding-num">3</div>
+      <p><strong>SVM vs LR:</strong> LinearSVC consistently outperformed Logistic Regression on TF-IDF features. With BERT embeddings, LR performed better — suggesting the embedding space is more LR-friendly (smoother, more linearly separable) than raw TF-IDF space.</p>
+    </div>
+  </div>
+
+  <!-- Next Steps -->
+  <div class="section">
+    <h2>Next Steps</h2>
+    <div class="next-item">
+      <div class="next-badge">Next 1-2 Session</div>
+      <div class="next-text">Sarcasm - new datasets </div>
+    </div>
+    <div class="next-item">
+      <div class="next-badge">Final step</div>
+      <div class="next-text">Building a practical application based on the best-performing BERT model and sarcasm detection, plus documentation and deployment considerations.</div>
+    </div>
+  </div>
+
+  <footer>NLP Group Project Tokenizers &nbsp;·&nbsp; University of Bamberg &nbsp;·&nbsp; 2026</footer>
+
+</div>
+
+<script>
+const labels = [
+  'LR Scratch\n(Week05)',
+  'TF-IDF\nUnigrams+LR',
+  'TF-IDF\nUnigrams+SVM',
+  'TF-IDF\nBigrams+LR',
+  'TF-IDF\nBigrams+SVM',
+  'BERT\nGeneric',
+  'BERT\nSST-2',
+  'BERT\nDistil-IMDB',
+  'BERT\nFull-IMDB',
+];
+
+const f1 = [0.8856, 0.8991, 0.8968, 0.9074, 0.9230, 0.8614, 0.8917, 0.9288, 0.9545];
+
+const colors = [
+  '#636e72','#00b894','#00b894','#00b894','#00b894',
+  '#74b9ff','#74b9ff','#0984e3','#2d3436'
+];
+
+new Chart(document.getElementById('f1Chart'), {
+  type: 'bar',
+  data: {
+    labels,
+    datasets: [{
+      label: 'F1 Score',
+      data: f1,
+      backgroundColor: colors,
+      borderRadius: 6,
+      borderSkipped: false,
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: ctx => ` F1 = ${ctx.raw.toFixed(4)}`
+        }
+      }
+    },
+    scales: {
+      y: {
+        min: 0.84,
+        max: 0.97,
+        ticks: { callback: v => v.toFixed(2) },
+        grid: { color: '#f0f0f0' }
+      },
+      x: {
+        ticks: { font: { size: 10 } },
+        grid: { display: false }
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>

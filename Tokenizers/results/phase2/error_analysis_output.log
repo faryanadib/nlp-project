@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Device: mps
+Model:  fabriceyhc/bert-base-uncased-imdb
+
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 48237.98it/s]
+Test set: 1,066 reviews
+
+Accuracy: 0.8096  |  Errors: 203/1066 (19.0%)
+  False positives (neg->pos): 152
+  False negatives (pos->neg): 51
+  Mean confidence -- correct 0.993 | errors 0.985
+
+Saved 203 misclassified rows -> /Users/faryan/Faryan/UNI/5th semester/NLP-Project/Project/Tokenizers/results/phase2/error_analysis_errors.csv
+Saved PDF report -> /Users/faryan/Faryan/UNI/5th semester/NLP-Project/Project/Tokenizers/results/phase2/ERROR_ANALYSIS.pdf

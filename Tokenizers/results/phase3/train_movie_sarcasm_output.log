@@ -1,0 +1,82 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Device: mps
+Movie-subreddit sarcasm comments: 9527 | balance {0: 4831, 1: 4696}
+Split: train 6858 / val 763 / test 1906  (test saved -> phase3_sarcasm/data/reddit_movie_test.csv)
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 41604.35it/s]
+[transformers] [1mBertForSequenceClassification LOAD REPORT[0m from: bert-base-uncased
+Key                                        | Status     | 
+-------------------------------------------+------------+-
+cls.predictions.transform.dense.bias       | UNEXPECTED | 
+cls.seq_relationship.bias                  | UNEXPECTED | 
+cls.predictions.transform.LayerNorm.bias   | UNEXPECTED | 
+cls.seq_relationship.weight                | UNEXPECTED | 
+cls.predictions.bias                       | UNEXPECTED | 
+cls.predictions.transform.LayerNorm.weight | UNEXPECTED | 
+cls.predictions.transform.dense.weight     | UNEXPECTED | 
+classifier.bias                            | MISSING    | 
+classifier.weight                          | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+    step 0/215 loss 0.6990
+    step 20/215 loss 0.6893
+    step 40/215 loss 0.7006
+    step 60/215 loss 0.7015
+    step 80/215 loss 0.5970
+    step 100/215 loss 0.6080
+    step 120/215 loss 0.5274
+    step 140/215 loss 0.6801
+    step 160/215 loss 0.5683
+    step 180/215 loss 0.6743
+    step 200/215 loss 0.6996
+Epoch 1/3 train loss 0.6415 acc 0.6203 | val loss 0.5752 acc 0.6999 | 5.5min
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  4.56it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  4.53it/s]
+  ↳ saved best -> phase3_sarcasm/checkpoints/movie_reddit_model
+    step 0/215 loss 0.6141
+    step 20/215 loss 0.5716
+    step 40/215 loss 0.5596
+    step 60/215 loss 0.4661
+    step 80/215 loss 0.5301
+    step 100/215 loss 0.4844
+    step 120/215 loss 0.4312
+    step 140/215 loss 0.5658
+    step 160/215 loss 0.5603
+    step 180/215 loss 0.4177
+    step 200/215 loss 0.5465
+Epoch 2/3 train loss 0.5068 acc 0.7486 | val loss 0.5725 acc 0.7104 | 6.5min
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  3.86it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  3.85it/s]
+  ↳ saved best -> phase3_sarcasm/checkpoints/movie_reddit_model
+    step 0/215 loss 0.3579
+    step 20/215 loss 0.3203
+    step 40/215 loss 0.3712
+    step 60/215 loss 0.3561
+    step 80/215 loss 0.2954
+    step 100/215 loss 0.3772
+    step 120/215 loss 0.4015
+    step 140/215 loss 0.4616
+    step 160/215 loss 0.2944
+    step 180/215 loss 0.5250
+    step 200/215 loss 0.2079
+Epoch 3/3 train loss 0.3902 acc 0.8304 | val loss 0.6192 acc 0.7051 | 6.9min
+
+======================================================================
+COMPARISON on held-out MOVIE test set (1906 comments)
+======================================================================
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 7255.52it/s]
+NEW BERT (movie Reddit)      acc 0.7130 | P 0.6918 | R 0.7529 | F1 0.7211 | sarc-share 54%
+    CM: TN652 FP315 FN232 TP707
+Loading weights:   0%|          | 0/202 [00:00<?, ?it/s]Loading weights: 100%|██████████| 202/202 [00:00<00:00, 7328.07it/s]
+dnzblgn (cust.reviews)       acc 0.5367 | P 0.5565 | R 0.2939 | F1 0.3847 | sarc-share 26%
+    CM: TN747 FP220 FN663 TP276
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 56763.74it/s]
+helinivan (headlines)        acc 0.5068 | P 0.4959 | R 0.0639 | F1 0.1132 | sarc-share 6%
+    CM: TN906 FP61 FN879 TP60
+majority baseline            acc 0.5073 | F1 0.0000
+
+=== RANKING by F1 on movie test set ===
+  NEW BERT (movie Reddit)      F1 0.7211  acc 0.7130
+  dnzblgn (cust.reviews)       F1 0.3847  acc 0.5367
+  helinivan (headlines)        F1 0.1132  acc 0.5068
+
+DONE

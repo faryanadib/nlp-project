@@ -1,0 +1,29 @@
+Crawling reviews for: Inception
+
+→ Letterboxd …
+    FAILED (0 reviews)
+
+→ IMDb (users) …
+    FAILED (0 reviews)
+
+→ Metacritic …
+    FAILED (0 reviews)
+
+→ Rotten Tomatoes …
+    ! request failed: https://www.rottentomatoes.com/napi/search/all?searchQuery=Inception (HTTPError)
+    FAILED (0 reviews)
+
+→ RogerEbert.com …
+    FAILED (0 reviews)
+
+────────────────────────────────────────────────────────────
+Per-source results:
+  Letterboxd         FAILED (0 reviews)
+  IMDb (users)       FAILED (0 reviews)
+  Metacritic         FAILED (0 reviews)
+  Rotten Tomatoes    FAILED (0 reviews)
+  RogerEbert.com     FAILED (0 reviews)
+
+Total unique reviews: 0
+Saved → /Users/faryan/Faryan/UNI/5th semester/NLP-Project/Project/Tokenizers/phase4_crawler/gathered_data/Inception_reviews.xlsx
+❌ FAILED — no reviews collected (all sources failed/blocked)

@@ -1,0 +1,32 @@
+
+════════════════════════════════════════════════════════════
+TESTING: Inception
+════════════════════════════════════════════════════════════
+
+→ TMDB …
+    8 reviews in 0.1s
+
+→ Letterboxd …
+    66 reviews in 6.4s
+
+→ Trakt …
+    80 reviews in 6.6s
+[PASS] Inception: 146 unique reviews, file OK, no dupes, no truncation
+
+════════════════════════════════════════════════════════════
+TESTING: The Godfather
+════════════════════════════════════════════════════════════
+
+→ TMDB …
+    6 reviews in 0.2s
+
+→ Letterboxd …
+    ! request failed: https://letterboxd.com/film/the-godfather/reviews/by/activity/page/1/ (HTTPError)
+    FAILED (0 reviews)
+
+→ Trakt …
+    82 reviews in 6.2s
+[PASS] The Godfather: 87 unique reviews, file OK, no dupes, no truncation
+
+────────────────────────────────────────────────────────────
+✅ PASSED — all crawler sanity checks OK

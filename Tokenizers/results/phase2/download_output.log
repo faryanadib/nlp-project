@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading 'cornell-movie-review-data/rotten_tomatoes' from HuggingFace…
+
+Dataset statistics:
+  train          8530 rows | negative: 4265 (50.0%) positive: 4265 (50.0%) | avg length: 21.0 words / 114 chars
+  validation     1066 rows | negative: 533 (50.0%) positive: 533 (50.0%) | avg length: 21.0 words / 114 chars
+  test           1066 rows | negative: 533 (50.0%) positive: 533 (50.0%) | avg length: 21.2 words / 116 chars
+  total         10662 rows
+Saved → /Users/faryan/Faryan/UNI/5th semester/NLP-Project/Project/Tokenizers/phase2_new_dataset/data/train.csv
+Saved → /Users/faryan/Faryan/UNI/5th semester/NLP-Project/Project/Tokenizers/phase2_new_dataset/data/validation.csv
+Saved → /Users/faryan/Faryan/UNI/5th semester/NLP-Project/Project/Tokenizers/phase2_new_dataset/data/test.csv
+
+✅ PASSED — dataset downloaded, 3 non-empty splits saved

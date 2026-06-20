@@ -1,0 +1,19 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Device : mps
+Model  : fabriceyhc/bert-base-uncased-imdb
+Loading model…
+
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 36718.43it/s]
+[PASS] Output shape & type          shape (6, 2) OK, prob sums within 0.0001
+[PASS] Prediction direction         all 6 clear-cut sentences correct
+[PASS] Edge cases                   all 4 edge cases handled without crash/NaN
+[PASS] Confidence (neutral<clear)   clear conf 1.000 vs neutral conf 0.980
+[PASS] Reproducibility              identical logits across 3 runs
+[FAIL] Probability calibration      conf mean 0.993, range 0.052 — all predictions near-certain (overconfident)
+[PASS] Batch consistency            max logit deviation 4.77e-07 (≤ 0.0001), labels identical
+[PASS] Tokenization (trunc/pad)     truncated to 512 tokens, padded batch (2, 512) with correct mask
+
+────────────────────────────────────────────────────────────
+SUMMARY: 7/8 checks passed, 1 failed
+❌ FAILED — failing checks: Probability calibration
+────────────────────────────────────────────────────────────

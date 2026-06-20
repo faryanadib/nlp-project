@@ -1,0 +1,23 @@
+Crawling reviews for: Inception
+
+→ TMDB …
+    8 reviews in 0.1s
+
+→ Letterboxd …
+    ! request failed: https://letterboxd.com/film/inception/reviews/by/activity/page/1/ (HTTPError)
+    FAILED (0 reviews)
+
+→ Trakt …
+    (skipped: set TRAKT_CLIENT_ID to enable Trakt)
+    FAILED (0 reviews)
+
+────────────────────────────────────────────────────────────
+Per-source results:
+  TMDB               8 reviews in 0.1s
+  Letterboxd         FAILED (0 reviews)
+  Trakt              FAILED (0 reviews)
+
+Total unique reviews: 8
+Saved → /Users/faryan/Faryan/UNI/5th semester/NLP-Project/Project/Tokenizers/phase4_crawler/gathered_data/Inception_reviews.xlsx
+⚠️  collected fewer than the 100-review target
+✅ PASSED — crawl finished and Excel file written

@@ -1,0 +1,22 @@
+Crawling reviews for: The Dark Knight
+
+→ TMDB …
+    16 reviews in 0.3s
+
+→ Letterboxd …
+    67 reviews in 22.1s
+
+→ Trakt …
+    (skipped: set TRAKT_CLIENT_ID to enable Trakt)
+    FAILED (0 reviews)
+
+────────────────────────────────────────────────────────────
+Per-source results:
+  TMDB               16 reviews in 0.3s
+  Letterboxd         67 reviews in 22.1s
+  Trakt              FAILED (0 reviews)
+
+Total unique reviews: 77
+Saved → /Users/faryan/Faryan/UNI/5th semester/NLP-Project/Project/Tokenizers/phase4_crawler/gathered_data/The_Dark_Knight_reviews.xlsx
+⚠️  collected fewer than the 100-review target
+✅ PASSED — crawl finished and Excel file written

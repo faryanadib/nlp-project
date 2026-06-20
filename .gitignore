@@ -2,3 +2,11 @@ Data/
 .DS_Store
 __pycache__/
 *.pyc
+
+# Large archive — do not commit
+Tokenizers.zip
+*.zip
+
+# Virtual environments
+.venv/
+venv/

@@ -1,0 +1,48 @@
+Sentiment model: fabriceyhc/bert-base-uncased-imdb
+Sarcasm model:   phase3_sarcasm/checkpoints/movie_reddit_model
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 54045.46it/s]
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 7823.74it/s]
+
+[PASS] 'This film was a beautiful, moving masterpiece. I cried …'
+       got Positive/Not Sarcastic (expected Positive/Not Sarcastic) → Genuinely Positive
+[PASS] 'Awful. Two hours of my life I will never get back.'
+       got Negative/Not Sarcastic (expected Negative/Not Sarcastic) → Genuinely Negative
+[PASS] 'Oh sure, this was the BEST movie ever made 🙄'
+       got Positive/Sarcastic (expected Positive/Sarcastic) → Likely Negative (sarcastic positive)
+[PASS] 'Yeah, terrible movie, just terrible — said no one who e…'
+       got Negative/Sarcastic (expected Negative/Sarcastic) → Likely Negative (sarcastic negative)
+[PASS] 'Wow, what a thrill, watching paint dry would have been …'
+       got Positive/Sarcastic (expected any/Sarcastic) → Likely Negative (sarcastic positive)
+[FAIL] 'Absolutely loved the soundtrack and the acting was supe…'
+       got Positive/Sarcastic (expected Positive/Not Sarcastic) → Likely Negative (sarcastic positive)
+
+────────────────────────────────────────────────────────────
+SUMMARY: 5/6 examples passed
+❌ FAILED
+
+--- extra movie-review sarcasm examples ---
+
+Review   : Oh sure, BEST movie ever 🙄
+Sentiment: Positive (100.0%)
+Sarcasm  : Sarcastic (88.6%)
+Verdict  : Likely Negative (sarcastic positive)
+
+Review   : Wow, two hours I'll never get back. Just brilliant.
+Sentiment: Positive (100.0%)
+Sarcasm  : Sarcastic (64.4%)
+Verdict  : Likely Negative (sarcastic positive)
+
+Review   : A genuine masterpiece, I was moved to tears.
+Sentiment: Positive (100.0%)
+Sarcasm  : Not Sarcastic (83.7%)
+Verdict  : Genuinely Positive
+
+Review   : Amazing. I love wasting my evening on garbage like this.
+Sentiment: Negative (99.6%)
+Sarcasm  : Sarcastic (51.2%)
+Verdict  : Likely Negative (sarcastic negative)
+
+Review   : yeah because we totally needed another superhero reboot
+Sentiment: Negative (99.4%)
+Sarcasm  : Sarcastic (97.0%)
+Verdict  : Likely Negative (sarcastic negative)

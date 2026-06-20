@@ -1,3 +1,29 @@
-*
-!.gitignore
-!bert_classifier.py
+# ── Virtual environment ───────────────────────────────────────────────
+.venv/
+
+# ── Trained models (huge; regenerate with the training scripts) ───────
+phase3_sarcasm/checkpoints/
+phase2_new_dataset/checkpoints/
+
+# ── Datasets & crawled data (regenerate with the download/crawl scripts)
+phase2_new_dataset/data/
+phase3_sarcasm/data/
+phase4_crawler/gathered_data/
+
+# ── Heavy embedding dumps from the earlier Session-1 work ─────────────
+results/Basic/*.npz
+
+# ── Secrets — never commit API keys ──────────────────────────────────
+.env
+*.key
+secrets*
+
+# ── Persian reports — kept local only (repo is English) ──────────────
+results/team_report_FA.md
+results/Basic/report_fa.md
+
+# ── Python / OS junk ─────────────────────────────────────────────────
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store

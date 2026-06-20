@@ -1,0 +1,5 @@
+setup,accuracy,precision,recall,f1,note
+LR scratch BoW binary,,,,0.8856,Week05 baseline
+TF-IDF bigrams + SVM,,,,0.923,Session 1 best
+BERT embeddings + LR,0.8895,0.8835,0.9001,0.8917,this run
+BERT embeddings + SVM,0.8875,0.883,0.8961,0.8895,this run

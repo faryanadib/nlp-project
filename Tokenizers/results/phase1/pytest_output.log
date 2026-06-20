@@ -1,0 +1,39 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.11.15, pytest-9.0.3, pluggy-1.6.0 -- /Users/faryan/Faryan/UNI/5th semester/NLP-Project/Project/Tokenizers/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/faryan/Faryan/UNI/5th semester/NLP-Project/Project/Tokenizers
+plugins: anyio-4.13.0
+collecting ... collected 8 items
+
+phase1_sanity_check/test_sanity.py::test_sanity[Output shape & type] PASSED [ 12%]
+phase1_sanity_check/test_sanity.py::test_sanity[Prediction direction] PASSED [ 25%]
+phase1_sanity_check/test_sanity.py::test_sanity[Edge cases] PASSED       [ 37%]
+phase1_sanity_check/test_sanity.py::test_sanity[Confidence (neutral<clear)] PASSED [ 50%]
+phase1_sanity_check/test_sanity.py::test_sanity[Reproducibility] PASSED  [ 62%]
+phase1_sanity_check/test_sanity.py::test_sanity[Probability calibration] FAILED [ 75%]
+phase1_sanity_check/test_sanity.py::test_sanity[Batch consistency] PASSED [ 87%]
+phase1_sanity_check/test_sanity.py::test_sanity[Tokenization (trunc/pad)] PASSED [100%]
+
+=================================== FAILURES ===================================
+_____________________ test_sanity[Probability calibration] _____________________
+
+name = 'Probability calibration'
+check_fn = <function check_calibration at 0x128e6e5c0>
+model_and_tokenizer = (BertTokenizer(name_or_path='fabriceyhc/bert-base-uncased-imdb', vocab_size=30522, model_max_length=512, padding_side=... )
+  )
+  (dropout): Dropout(p=0.1, inplace=False)
+  (classifier): Linear(in_features=768, out_features=2, bias=True)
+))
+
+    @pytest.mark.parametrize("name,check_fn", sc.ALL_CHECKS, ids=[n for n, _ in sc.ALL_CHECKS])
+    def test_sanity(name, check_fn, model_and_tokenizer):
+        tokenizer, model = model_and_tokenizer
+        passed, detail = check_fn(tokenizer, model)
+>       assert passed, f"{name}: {detail}"
+E       AssertionError: Probability calibration: conf mean 0.993, range 0.052 — all predictions near-certain (overconfident)
+E       assert False
+
+phase1_sanity_check/test_sanity.py:30: AssertionError
+=========================== short test summary info ============================
+FAILED phase1_sanity_check/test_sanity.py::test_sanity[Probability calibration]
+========================= 1 failed, 7 passed in 1.94s ==========================

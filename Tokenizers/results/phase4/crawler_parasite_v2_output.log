@@ -1,0 +1,22 @@
+Crawling reviews for: Parasite
+
+→ TMDB …
+    (skipped: set TMDB_API_KEY to enable TMDB)
+    FAILED (0 reviews)
+
+→ Letterboxd …
+    65 reviews in 8.6s
+
+→ Wikipedia (critics) …
+    6 reviews in 0.6s
+
+────────────────────────────────────────────────────────────
+Per-source results:
+  TMDB               FAILED (0 reviews)
+  Letterboxd         65 reviews in 8.6s
+  Wikipedia (critics) 6 reviews in 0.6s
+
+Total unique reviews: 67
+Saved → /Users/faryan/Faryan/UNI/5th semester/NLP-Project/Project/Tokenizers/phase4_crawler/gathered_data/Parasite_reviews.xlsx
+⚠️  collected fewer than the 100-review target
+✅ PASSED — crawl finished and Excel file written

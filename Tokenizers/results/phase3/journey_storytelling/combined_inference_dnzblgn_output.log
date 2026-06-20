@@ -1,0 +1,44 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Sentiment model: fabriceyhc/bert-base-uncased-imdb
+Sarcasm model:   dnzblgn/Sarcasm-Detection-Customer-Reviews
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 51806.99it/s]
+Loading weights:   0%|          | 0/202 [00:00<?, ?it/s]Loading weights: 100%|██████████| 202/202 [00:00<00:00, 8308.97it/s]
+
+[PASS] 'This film was a beautiful, moving masterpiece. I cried …'
+       got Positive/Not Sarcastic (expected Positive/Not Sarcastic) → Genuinely Positive
+[FAIL] 'Awful. Two hours of my life I will never get back.'
+       got Negative/Sarcastic (expected Negative/Not Sarcastic) → Likely Negative (sarcastic negative)
+[PASS] 'Oh sure, this was the BEST movie ever made 🙄'
+       got Positive/Sarcastic (expected Positive/Sarcastic) → Likely Negative (sarcastic positive)
+[PASS] 'Yeah, terrible movie, just terrible — said no one who e…'
+       got Negative/Sarcastic (expected Negative/Sarcastic) → Likely Negative (sarcastic negative)
+[PASS] 'Wow, what a thrill, watching paint dry would have been …'
+       got Positive/Sarcastic (expected any/Sarcastic) → Likely Negative (sarcastic positive)
+[PASS] 'Absolutely loved the soundtrack and the acting was supe…'
+       got Positive/Not Sarcastic (expected Positive/Not Sarcastic) → Genuinely Positive
+
+────────────────────────────────────────────────────────────
+SUMMARY: 5/6 examples passed
+❌ FAILED
+
+--- extra movie-review sarcasm examples ---
+
+Review   : Oh sure, BEST movie ever 🙄
+Sentiment: Positive (100.0%)
+Sarcasm  : Sarcastic (100.0%)
+Verdict  : Likely Negative (sarcastic positive)
+
+Review   : Wow, two hours I'll never get back. Just brilliant.
+Sentiment: Positive (100.0%)
+Sarcasm  : Sarcastic (100.0%)
+Verdict  : Likely Negative (sarcastic positive)
+
+Review   : A genuine masterpiece, I was moved to tears.
+Sentiment: Positive (100.0%)
+Sarcasm  : Not Sarcastic (92.3%)
+Verdict  : Genuinely Positive
+
+Review   : Amazing. I love wasting my evening on garbage like this.
+Sentiment: Negative (99.6%)
+Sarcasm  : Sarcastic (100.0%)
+Verdict  : Likely Negative (sarcastic negative)

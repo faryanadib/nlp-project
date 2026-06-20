@@ -1,0 +1,34 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Device: mps
+Model:  fabriceyhc/bert-base-uncased-imdb
+
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights: 100%|██████████| 201/201 [00:00<00:00, 54118.31it/s]
+============================================================
+FULL dataset  (10,662 reviews)
+============================================================
+Accuracy : 0.8011
+Precision: 0.7527
+Recall   : 0.8968
+F1       : 0.8185
+Confusion matrix (rows=true, cols=pred; 0=neg,1=pos):
+          pred 0   pred 1
+  true 0    3760     1571
+  true 1     550     4781
+Baselines (acc/F1): random 0.5031/0.5030 | majority 0.5000/0.0000 | model 0.8011/0.8185
+Pred class share: neg 40.4% / pos 59.6%
+
+============================================================
+RANDOM sample (1066, seed=42)  (1,066 reviews)
+============================================================
+Accuracy : 0.7824
+Precision: 0.7378
+Recall   : 0.8645
+F1       : 0.7961
+Confusion matrix (rows=true, cols=pred; 0=neg,1=pos):
+          pred 0   pred 1
+  true 0     381      161
+  true 1      71      453
+Baselines (acc/F1): random 0.4747/0.4707 | majority 0.5084/0.0000 | model 0.7824/0.7961
+Pred class share: neg 42.4% / pos 57.6%
+
+✅ DONE — both evaluations complete

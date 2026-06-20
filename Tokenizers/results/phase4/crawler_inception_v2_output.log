@@ -1,0 +1,23 @@
+Crawling reviews for: Inception
+
+→ TMDB …
+    (skipped: set TMDB_API_KEY to enable TMDB)
+    FAILED (0 reviews)
+
+→ Letterboxd …
+    66 reviews in 6.7s
+
+→ Wikipedia (critics) …
+    ! request failed: https://en.wikipedia.org/w/api.php?action=parse&page=Inception&prop=sections&for (HTTPError)
+    FAILED (0 reviews)
+
+────────────────────────────────────────────────────────────
+Per-source results:
+  TMDB               FAILED (0 reviews)
+  Letterboxd         66 reviews in 6.7s
+  Wikipedia (critics) FAILED (0 reviews)
+
+Total unique reviews: 59
+Saved → /Users/faryan/Faryan/UNI/5th semester/NLP-Project/Project/Tokenizers/phase4_crawler/gathered_data/Inception_reviews.xlsx
+⚠️  collected fewer than the 100-review target
+✅ PASSED — crawl finished and Excel file written
